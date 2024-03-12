@@ -6,7 +6,7 @@ from Bio import SeqIO
 import torch.optim as optim
 
 # 假设模型和数据集已经按照您的要求加载和准备好
-model = GenSLM("genslm_2.5b_patric", model_cache_dir="your_model_cache_dir")
+model = GenSLM("genslm_2.5b_patric", model_cache_dir="")
 model.train()
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model.to(device)
