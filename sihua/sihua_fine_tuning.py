@@ -11,7 +11,7 @@ model.train()
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model.to(device)
 
-sequences = [str(record.seq) for record in SeqIO.parse("your_fasta_file.fasta", "fasta")]
+sequences = [str(record.seq) for record in SeqIO.parse("sihua.fasta", "fasta")]
 dataset = SequenceDataset(sequences, model.seq_length, model.tokenizer)
 
 # 分割数据集
@@ -52,4 +52,4 @@ for epoch in range(num_epochs):
     print(f"Epoch {epoch+1}, Train Loss: {total_train_loss / len(train_dataloader)}, Test Loss: {total_test_loss / len(test_dataloader)}")
 
 # 可选：保存微调后的模型
-torch.save(model.state_dict(), "path_to_save_your_model.pt")
+torch.save(model.state_dict(), "sihua_2.5b_model.pt")
